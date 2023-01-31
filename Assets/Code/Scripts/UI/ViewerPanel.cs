@@ -50,7 +50,7 @@ public class ViewerPanel : MonoBehaviour
         if (childCnt > 0)
             for (int i = childCnt - 1; i >= 0; i--)
             {
-                Debug.Log($"destroy µÚ{i}¸ö:{libContainer.GetChild(i).name}");
+                //Debug.Log($"destroy ç¬¬{i}ä¸ª:{libContainer.GetChild(i).name}");
                 DestroyImmediate(libContainer.GetChild(i).gameObject);
             }
     }
@@ -61,7 +61,7 @@ public class ViewerPanel : MonoBehaviour
 
         Debug.Log($"isLibraryOpen:{isLibraryOpen}; {(isLibraryOpen ? 0 : ModelLibraryPanel.sizeDelta.x + 20)}");
 
-        ModelLibraryPanel.DOAnchorPos3DX(!isLibraryOpen ? 0 : ModelLibraryPanel.sizeDelta.x + 20, tweeningDuration).OnComplete(() =>
+        ModelLibraryPanel.DOAnchorPos3DX(!isLibraryOpen ? 0 : ModelLibraryPanel.sizeDelta.x + 50, tweeningDuration).OnComplete(() =>
         {
             isLibraryOpen = !isLibraryOpen;
             Debug.Log($"isLibraryOpen:{isLibraryOpen}");
