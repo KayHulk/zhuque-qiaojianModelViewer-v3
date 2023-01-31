@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b99653daf09cf4f48ad3f0f2c4224dd9, type: 3}
+  m_Name: ModelLibraryDataScriptableAsset
+  m_EditorClassIdentifier: 
+  ModelLibrayItems:
+  - Name: Cube
+    Cover: {fileID: 2800000, guid: 4bc046432008862489ff9a2d6a23dc00, type: 3}
+    Model: {fileID: 919132149155446097, guid: 8512df6555ff0e9418f26f49e70efa20, type: 3}
+  - Name: Cone
+    Cover: {fileID: 2800000, guid: 4b95adcf6f6e63348b596b8e792d3e22, type: 3}
+    Model: {fileID: 919132149155446097, guid: 393196c1ef00a7449bfc48630b83b52d, type: 3}
+  - Name: Sphere
+    Cover: {fileID: 2800000, guid: 48576ee07e510b844af89c14ffb13c6e, type: 3}
+    Model: {fileID: 919132149155446097, guid: 783548c72f7491644809a9c9aec3aa84, type: 3}
+  - Name: Cylinder
+    Cover: {fileID: 2800000, guid: 1b38f8e83223982469437d4d7d1df646, type: 3}
+    Model: {fileID: 919132149155446097, guid: 69f1e0af627d95a41b22e397eff0819b, type: 3}
+  - Name: Angular
+    Cover: {fileID: 2800000, guid: c1e57ab5f918e2d4fbdbc6427de885d7, type: 3}
+    Model: {fileID: 919132149155446097, guid: aa27234fd7327da44b80f46f7fe81852, type: 3}
