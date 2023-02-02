@@ -148,8 +148,8 @@ namespace Lean.Common
 			// Get t value
 			var factor = LeanHelper.GetDampenFactor(damping, Time.deltaTime);
 
-			// Lerp the current values to the target ones
-			currentPitch = Mathf.Lerp(currentPitch, pitch, factor);
+            // Lerp the current values to the target ones
+            currentPitch = Mathf.Lerp(currentPitch, pitch, factor);
 			currentYaw   = Mathf.Lerp(currentYaw  , yaw  , factor);
 
 			// Rotate to pitch and yaw values
