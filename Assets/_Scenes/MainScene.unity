@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 153575381}
   m_Layer: 5
   m_Name: PanelCanvas
-  m_TagString: Untagged
+  m_TagString: MainCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -298,6 +298,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 578fc93fe64349a409c2f9c874a96116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  linePrefab: {fileID: 4207130831560715335, guid: e34a0ed8673c9f245b84b6f10c50000b, type: 3}
+  boundsDirs: {fileID: 11400000, guid: d5fcab7e4e2020d4196e3d55fd2327dd, type: 2}
 --- !u!1 &200290442
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,6 +810,10 @@ PrefabInstance:
     - target: {fileID: 2994518507442343799, guid: be3648aee8054e8438f4febbfc287dc5, type: 3}
       propertyPath: m_Name
       value: angular
+      objectReference: {fileID: 0}
+    - target: {fileID: 2994518507442343799, guid: be3648aee8054e8438f4febbfc287dc5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be3648aee8054e8438f4febbfc287dc5, type: 3}
@@ -1454,6 +1460,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7710286704049575437, guid: f6c82263baf128847b768a90270f5026, type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710286704600641324, guid: f6c82263baf128847b768a90270f5026, type: 3}
+      propertyPath: m_Vertical
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7710286704968093000, guid: f6c82263baf128847b768a90270f5026, type: 3}

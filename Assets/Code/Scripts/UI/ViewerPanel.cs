@@ -40,6 +40,7 @@ public class ViewerPanel : MonoBehaviour
             RectTransform rect = Instantiate(libItemPrefab, libContainer);
             rect.name = data.Name;
             rect.GetComponent<RawImage>().texture = data.Cover;
+            rect.GetComponent<ModelLibraryItem>().itemModel = data.Model;
         }
     }
 

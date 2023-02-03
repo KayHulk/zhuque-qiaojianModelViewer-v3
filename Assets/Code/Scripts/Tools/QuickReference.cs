@@ -25,6 +25,19 @@ public class QuickReference : MonoBehaviour
         }
     }
 
+    private static Transform _mainCanvas = null;
+    public static Transform mainCanvas
+    {
+        get
+        {
+            if (_mainCanvas == null)
+            {
+                _mainCanvas = GameObject.FindGameObjectWithTag("MainCanvas").transform;
+            }
+            return _mainCanvas;
+        }
+    }
+
     private static Transform _sceneParent = null;
     public static Transform sceneParent
     {

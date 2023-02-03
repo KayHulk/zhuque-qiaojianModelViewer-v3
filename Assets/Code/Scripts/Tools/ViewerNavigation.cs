@@ -9,6 +9,7 @@ using DG.Tweening.Core.Easing;
 
 public class ViewerNavigation : MonoBehaviour
 {
+    #region Preferences
     Camera mainCamera => QuickReference.mainCamera;
     LeanTouch leanTouch => QuickReference.leanTouch;
     Transform sceneParent => QuickReference.sceneParent;
@@ -56,8 +57,14 @@ public class ViewerNavigation : MonoBehaviour
         }
     }
 
+    [SerializeField] private GameObject linePrefab;
+    [SerializeField] private BoundsPointsDirScriptableAssets boundsDirs;
+    #endregion
+
     private float defaultClampMaxValue = 20.0f;
-    private Vector2 defaultPitchYawValue = Vector2.zero;
+
+    private Transform LinesObj;
+
 
     private void OnEnable()
     {
@@ -69,6 +76,68 @@ public class ViewerNavigation : MonoBehaviour
         if (leanFingerTap != null) leanFingerTap.OnFinger.RemoveListener(FingerTapHandler);
     }
 
+    #region Unity Function
+    private void Start()
+    {
+        LinesObj = Instantiate(linePrefab).transform;
+    }
+    private bool isDrawLine = false;
+    private void Update()
+    {
+        if(isDrawLine)
+            DetectModelsBounds();
+    }
+    #endregion
+
+    #region Draw Line
+    private void DetectModelsBounds()
+    {
+        Bounds bounds = GetWholeSceneBounds();
+        DrawBoundsLine(bounds);
+    }
+
+    private void DrawBoundsLine(Bounds bounds)
+    {
+        Vector3 center = bounds.center;
+        Vector3 extents = bounds.extents;
+
+        float deltaX = Mathf.Abs(extents.x);
+        float deltaY = Mathf.Abs(extents.y);
+        float deltaZ = Mathf.Abs(extents.z);
+
+        Vector3[] points = new Vector3[8];
+
+        points[0] = center + new Vector3(-deltaX, deltaY, -deltaZ);        // 上前左（相对于中心点）
+        points[1] = center + new Vector3(deltaX, deltaY, -deltaZ);         // 上前右
+        points[2] = center + new Vector3(deltaX, deltaY, deltaZ);          // 上后右
+        points[3] = center + new Vector3(-deltaX, deltaY, deltaZ);         // 上后左
+
+        points[4] = center + new Vector3(-deltaX, -deltaY, -deltaZ);       // 下前左
+        points[5] = center + new Vector3(deltaX, -deltaY, -deltaZ);        // 下前右
+        points[6] = center + new Vector3(deltaX, -deltaY, deltaZ);         // 下后右
+        points[7] = center + new Vector3(-deltaX, -deltaY, deltaZ);        // 下后左
+
+        int index = 0;
+        for (int i = 0; i < points.Length; i++)
+        {
+            List<Vector3> dirs = boundsDirs.BoundsPoints[i].Dir;
+            for (int k = 0; k < dirs.Count; k++)
+            {
+                Vector3 startPos = points[i];
+                Vector3 endPos = points[i] + (dirs[k] * boundsDirs.lineLength);
+                // Debug.DrawLine(points[i], points[i] + (dirs[k] * boundsDirs.lineLength), boundsDirs.lineColor);
+                LineRenderer line = LinesObj.GetChild(index).GetComponent<LineRenderer>();
+                index++;
+                line.material.color = boundsDirs.lineColor;
+                line.startWidth = line.endWidth = boundsDirs.lineThickness;
+                line.startColor = line.endColor = boundsDirs.lineColor;
+                line.SetPositions(new Vector3[2] { startPos, endPos });
+            }
+        }
+    }
+    #endregion
+
+    #region Camera Control
     private void FingerTapHandler(LeanFinger finger)
     {
         if (finger.TapCount == 2)
@@ -166,5 +235,12 @@ public class ViewerNavigation : MonoBehaviour
             }
         }
         return bounds;
+    }
+    #endregion
+
+    public void ChangeLinesState()
+    {
+        isDrawLine = !isDrawLine;
+        LinesObj.gameObject.SetActive(isDrawLine);
     }
 }
