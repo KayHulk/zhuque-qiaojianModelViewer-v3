@@ -9,32 +9,29 @@ public class ModelLibraryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     Camera mainCamera => QuickReference.mainCamera;
     Transform mainCanvas => QuickReference.mainCanvas;
 
-    public GameObject itemModel;
-    public CanvasGroup canvasGroup;
-    public GameObject line;
-    public Text prefName;
+    [HideInInspector] public GameObject itemModel;
+    [SerializeField] private GameObject draggingPref;
 
-    private ModelLibraryItem draggingItem;
+    private DraggingItem draggingItem;
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        draggingItem = Instantiate(GetComponent<RectTransform>(), transform.parent).GetComponent<ModelLibraryItem>();
-        draggingItem.transform.SetParent(mainCanvas);
+        if (draggingItem != null)
+            Destroy(draggingItem.gameObject);
+
+        draggingItem = Instantiate(draggingPref, mainCanvas).GetComponent<DraggingItem>();
         draggingItem.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f);
-        draggingItem.prefName.gameObject.SetActive(true);
+        draggingItem.rawImage.texture = GetComponent<RawImage>().texture;
         draggingItem.prefName.text = transform.name;
         draggingItem.canvasGroup.alpha = 0.5f;
-        draggingItem.line.SetActive(false);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (draggingItem != null)
-        {
-            Camera overlay = mainCamera.transform.Find("OverlayCamera").GetComponent<Camera>();
-            Debug.Log($"dP:{draggingItem.transform.position}, cP:{(Input.mousePosition)}");
+        if (draggingItem == null)
+            return;
+     
             draggingItem.GetComponent<RectTransform>().anchoredPosition3D = Input.mousePosition;
-        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
