@@ -43,15 +43,15 @@ public class ModelItemBox : MonoBehaviour
 
         Vector3[] points = new Vector3[8];
 
-        points[0] = center + new Vector3(-deltaX, deltaY + bounds.size.y * 0.5f, -deltaZ);        // ÉÏÇ°×ó£¨Ïà¶ÔÓÚÖĞĞÄµã£©
-        points[1] = center + new Vector3(deltaX, deltaY + bounds.size.y * 0.5f, -deltaZ);         // ÉÏÇ°ÓÒ
-        points[2] = center + new Vector3(deltaX, deltaY + bounds.size.y * 0.5f, deltaZ);          // ÉÏºóÓÒ
-        points[3] = center + new Vector3(-deltaX, deltaY + bounds.size.y * 0.5f, deltaZ);         // ÉÏºó×ó
+        points[0] = center + new Vector3(-deltaX, deltaY + bounds.size.y * 0.5f, -deltaZ);        // ä¸Šå‰å·¦ï¼ˆç›¸å¯¹äºä¸­å¿ƒç‚¹ï¼‰
+        points[1] = center + new Vector3(deltaX, deltaY + bounds.size.y * 0.5f, -deltaZ);         // ä¸Šå‰å³
+        points[2] = center + new Vector3(deltaX, deltaY + bounds.size.y * 0.5f, deltaZ);          // ä¸Šåå³
+        points[3] = center + new Vector3(-deltaX, deltaY + bounds.size.y * 0.5f, deltaZ);         // ä¸Šåå·¦
 
-        points[4] = center + new Vector3(-deltaX, -deltaY + bounds.size.y * 0.5f, -deltaZ);       // ÏÂÇ°×ó
-        points[5] = center + new Vector3(deltaX, -deltaY + bounds.size.y * 0.5f, -deltaZ);        // ÏÂÇ°ÓÒ
-        points[6] = center + new Vector3(deltaX, -deltaY + bounds.size.y * 0.5f, deltaZ);         // ÏÂºóÓÒ
-        points[7] = center + new Vector3(-deltaX, -deltaY + bounds.size.y * 0.5f, deltaZ);        // ÏÂºó×ó
+        points[4] = center + new Vector3(-deltaX, -deltaY + bounds.size.y * 0.5f, -deltaZ);       // ä¸‹å‰å·¦
+        points[5] = center + new Vector3(deltaX, -deltaY + bounds.size.y * 0.5f, -deltaZ);        // ä¸‹å‰å³
+        points[6] = center + new Vector3(deltaX, -deltaY + bounds.size.y * 0.5f, deltaZ);         // ä¸‹åå³
+        points[7] = center + new Vector3(-deltaX, -deltaY + bounds.size.y * 0.5f, deltaZ);        // ä¸‹åå·¦
 
         for (int i = 0; i < points.Length; i++)
         {

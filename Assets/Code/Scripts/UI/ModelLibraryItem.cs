@@ -86,7 +86,7 @@ public class ModelLibraryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         if (dragging3DItem != null)
         {
             Destroy(dragging3DItem.gameObject);
-            // TODO:½«¶ÔÓ¦ 3D Object ·ÅÖÃµ½¶ÔÓ¦Î»ÖÃÉÏ
+            // TODO:å°†å¯¹åº” 3D Object æ”¾ç½®åˆ°å¯¹åº”ä½ç½®ä¸Š
         }
     }
 

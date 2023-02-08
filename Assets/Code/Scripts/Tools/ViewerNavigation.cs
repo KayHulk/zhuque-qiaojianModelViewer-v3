@@ -147,15 +147,15 @@ public class ViewerNavigation : MonoBehaviour
 
         Vector3[] boundsPoints = new Vector3[8];
 
-        boundsPoints[0] = boundsCenter + new Vector3(-deltaX, deltaY, -deltaZ);        // ÉÏÇ°×ó£¨Ïà¶ÔÓÚÖĞĞÄµã£©
-        boundsPoints[1] = boundsCenter + new Vector3(deltaX, deltaY, -deltaZ);         // ÉÏÇ°ÓÒ
-        boundsPoints[2] = boundsCenter + new Vector3(deltaX, deltaY, deltaZ);          // ÉÏºóÓÒ
-        boundsPoints[3] = boundsCenter + new Vector3(-deltaX, deltaY, deltaZ);         // ÉÏºó×ó
+        boundsPoints[0] = boundsCenter + new Vector3(-deltaX, deltaY, -deltaZ);        // ä¸Šå‰å·¦ï¼ˆç›¸å¯¹äºä¸­å¿ƒç‚¹ï¼‰
+        boundsPoints[1] = boundsCenter + new Vector3(deltaX, deltaY, -deltaZ);         // ä¸Šå‰å³
+        boundsPoints[2] = boundsCenter + new Vector3(deltaX, deltaY, deltaZ);          // ä¸Šåå³
+        boundsPoints[3] = boundsCenter + new Vector3(-deltaX, deltaY, deltaZ);         // ä¸Šåå·¦
 
-        boundsPoints[4] = boundsCenter + new Vector3(-deltaX, -deltaY, -deltaZ);       // ÏÂÇ°×ó
-        boundsPoints[5] = boundsCenter + new Vector3(deltaX, -deltaY, -deltaZ);        // ÏÂÇ°ÓÒ
-        boundsPoints[6] = boundsCenter + new Vector3(deltaX, -deltaY, deltaZ);         // ÏÂºóÓÒ
-        boundsPoints[7] = boundsCenter + new Vector3(-deltaX, -deltaY, deltaZ);        // ÏÂºó×ó
+        boundsPoints[4] = boundsCenter + new Vector3(-deltaX, -deltaY, -deltaZ);       // ä¸‹å‰å·¦
+        boundsPoints[5] = boundsCenter + new Vector3(deltaX, -deltaY, -deltaZ);        // ä¸‹å‰å³
+        boundsPoints[6] = boundsCenter + new Vector3(deltaX, -deltaY, deltaZ);         // ä¸‹åå³
+        boundsPoints[7] = boundsCenter + new Vector3(-deltaX, -deltaY, deltaZ);        // ä¸‹åå·¦
 
 
         float d1 = Vector3.Distance(boundsPoints[0], boundsPoints[1]);
