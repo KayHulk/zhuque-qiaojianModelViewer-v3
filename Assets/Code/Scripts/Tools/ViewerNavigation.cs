@@ -79,7 +79,7 @@ public class ViewerNavigation : MonoBehaviour
     #region Unity Function
     private void Start()
     {
-        LinesObj = Instantiate(linePrefab).transform;
+
     }
     private bool isDrawLine = false;
     private void Update()

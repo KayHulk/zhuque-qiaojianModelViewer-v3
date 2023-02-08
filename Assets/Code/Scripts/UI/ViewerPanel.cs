@@ -41,6 +41,7 @@ public class ViewerPanel : MonoBehaviour
             rect.name = data.Name;
             rect.GetComponent<RawImage>().texture = data.Cover;
             rect.GetComponent<ModelLibraryItem>().itemModel = data.Model;
+            rect.GetComponent<ModelLibraryItem>().libratyRect = ModelLibraryPanel;
         }
     }
 

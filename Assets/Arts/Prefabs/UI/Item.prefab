@@ -163,7 +163,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemModel: {fileID: 0}
-  draggingPref: {fileID: 2633693665865160549, guid: d9ba27a5485dca1418d831018524fd07, type: 3}
+  draggingUIPref: {fileID: 2633693665865160549, guid: d9ba27a5485dca1418d831018524fd07, type: 3}
+  dragging3DPref: {fileID: 8387811866169012191, guid: 69bf9b1ef6ec39f4b9f020f6397359e4, type: 3}
 --- !u!225 &8158470731769500944
 CanvasGroup:
   m_ObjectHideFlags: 0
