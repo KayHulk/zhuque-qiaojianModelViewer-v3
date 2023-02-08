@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BoundsPointsDirScriptableAsset
   m_EditorClassIdentifier: 
   lineLength: 0.3
-  lineThickness: 0.005
+  lineThickness: 0.01
   lineColor: {r: 1, g: 0.99706453, b: 0.015686274, a: 1}
   BoundsPoints:
   - Dir:

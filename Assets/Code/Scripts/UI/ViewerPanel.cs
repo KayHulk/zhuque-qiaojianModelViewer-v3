@@ -61,12 +61,9 @@ public class ViewerPanel : MonoBehaviour
     {
         btn_Library.interactable = false;
 
-        Debug.Log($"isLibraryOpen:{isLibraryOpen}; {(isLibraryOpen ? 0 : ModelLibraryPanel.sizeDelta.x + 20)}");
-
         ModelLibraryPanel.DOAnchorPos3DX(!isLibraryOpen ? 0 : ModelLibraryPanel.sizeDelta.x + 50, tweeningDuration).OnComplete(() =>
         {
             isLibraryOpen = !isLibraryOpen;
-            Debug.Log($"isLibraryOpen:{isLibraryOpen}");
             btn_Library.interactable = true;
         });
     }

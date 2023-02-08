@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d3564dcc013d6b42889ca4d45a40acc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Quad: {fileID: 8387811867676237792}
   LinesObj: {fileID: 2187631190863234252}
   boundsDirs: {fileID: 11400000, guid: d5fcab7e4e2020d4196e3d55fd2327dd, type: 2}
   model: {fileID: 0}
@@ -75,7 +76,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8387811867676237795}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.01, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 8387811866169012188}

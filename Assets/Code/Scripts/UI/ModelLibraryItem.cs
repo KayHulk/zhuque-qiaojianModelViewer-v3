@@ -26,6 +26,8 @@ public class ModelLibraryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         InitDragging3D();
     }
 
+
+    private bool isInUI = true;
     public void OnDrag(PointerEventData eventData)
     {
         if (draggingUIItem == null)
@@ -33,6 +35,7 @@ public class ModelLibraryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         
         if (RectTransformUtility.RectangleContainsScreenPoint(libratyRect, Input.mousePosition))
         {
+                    isInUI = true;
             if (!draggingUIItem.gameObject.activeSelf) draggingUIItem.gameObject.SetActive(true);
             if (dragging3DItem.gameObject.activeSelf) dragging3DItem.gameObject.SetActive(false);
 
@@ -40,6 +43,7 @@ public class ModelLibraryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         }
         else
         {
+                    isInUI = false;
             if (draggingUIItem.gameObject.activeSelf) draggingUIItem.gameObject.SetActive(false);
             if (!dragging3DItem.gameObject.activeSelf) dragging3DItem.gameObject.SetActive(true);
 
@@ -56,14 +60,9 @@ public class ModelLibraryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 
                 if (renderer != null)
                 {
-                    Debug.Log($"renderer:{renderer.name}, 3d:{dragging3DItem.name}");
-                    //dragging3DItem.transform.localEulerAngles = dragging3DItem.transform.localEulerAngles + (hitInfo.normal * -1);
-
-                    Vector3 v = dragging3DItem.transform.up;
                     dragging3DItem.transform.up = hitInfo.normal;
 
                     wordPos = hitInfo.point;
-                    
                 }
             }
             else
@@ -79,15 +78,15 @@ public class ModelLibraryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (draggingUIItem != null)
+        if (dragging3DItem != null && !isInUI)
         {
-            Destroy(draggingUIItem.gameObject);
+            dragging3DItem.Set3dModelTRS();
         }
-        if (dragging3DItem != null)
-        {
-            Destroy(dragging3DItem.gameObject);
-            // TODO:将对应 3D Object 放置到对应位置上
-        }
+
+        Destroy(draggingUIItem.gameObject);
+        draggingUIItem = null;
+        Destroy(dragging3DItem.gameObject);
+        dragging3DItem = null;
     }
 
     private void InitDraggingUI()

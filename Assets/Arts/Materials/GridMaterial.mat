@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GridShaderGraph
-  m_Shader: {fileID: -6465566751694194690, guid: 4141ad7245ba0134ab4021d89bb7cc37, type: 3}
+  m_Name: GridMaterial
+  m_Shader: {fileID: -6465566751694194690, guid: 247211b5f0daecc40b1e3cefc190210b, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,12 +19,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_3af8ebc5bb3a4165b5d1c2ab5d2b1b87:
-        m_Texture: {fileID: 2800000, guid: 99219ecb16e5ebe458e594d3fcbdb353, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D_d7c0ed2af7fe4dae9f9d566d6966850d:
-        m_Texture: {fileID: 2800000, guid: 20f9128d5411c9b44b65d4cb280ccea4, type: 3}
+    - Texture2D_3d7104e5fc814b8cbb236f3879905ac6:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -40,13 +36,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_154a1ef5af1d4309bd4273305de62a34: 0.95
-    - Vector1_416a5be3599d49c4af2f3060e44e1cc7: 4
-    - Vector1_70333b80fcf940538fda195199207008: 20
-    - Vector1_ab9a438f05af4485bca06cca3236c25a: 10
-    - Vector1_f8baf8d48f354e7b85f9ed7aa44469a6: 5
+    - Vector1_0003e7f8475f4c1899a6f1ce1735ae56: 0.15
+    - Vector1_1ab181d72448425f9f31e0b5793d4e4a: 2
+    - Vector1_47a65ec125f241cdbed14ffc048092fc: 0.27
+    - Vector1_6328c2c64b0e480b8374372ddc49ec1a: 0.96
+    - Vector1_a8fe5c590c63419a959362b3ac59079c: 20
+    - Vector1_bcc86b44330a406bb6b98b4dc11255c7: 0.8
     m_Colors:
-    - Color_a85ed798d172440f97e04997e5ee430b: {r: 1, g: 1, b: 1, a: 1}
-    - Color_bec2b005016642579e0f8506832d810a: {r: 1, g: 1, b: 1, a: 1}
-    - _GridColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

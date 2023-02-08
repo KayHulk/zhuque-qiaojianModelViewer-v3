@@ -117,7 +117,6 @@ public class ViewerNavigation : MonoBehaviour
 
     private void FocusScreenPoint(Vector3 hitPoint, Vector3 hitPointNormal)
     {
-        Debug.Log($"FocusScreenPoint");
         Vector3 dir = (hitPointNormal * -1).normalized;
         Vector3 pos = (hitPointNormal * -8) + hitPoint;
 
@@ -128,7 +127,6 @@ public class ViewerNavigation : MonoBehaviour
 
     private void CenterWholeModel()
     {
-        Debug.Log($"CenterWholeModel");
         var bounds = GetWholeSceneBounds();
         var camDis = CalculateCameraPreferredDistance(bounds);
 

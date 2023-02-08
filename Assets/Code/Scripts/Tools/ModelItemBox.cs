@@ -2,12 +2,14 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ModelItemBox : MonoBehaviour
 {
     Camera mainCamera => QuickReference.mainCamera;
     Transform sceneParent => QuickReference.sceneParent;
 
+    [SerializeField] private Transform Quad;
     [SerializeField] private Transform LinesObj;
     [SerializeField] private BoundsPointsDirScriptableAssets boundsDirs;
 
@@ -22,6 +24,7 @@ public class ModelItemBox : MonoBehaviour
         Vector3 pos = model.transform.position;
         pos.y = Bounds.size.y * 0.5f;
         model.transform.position = pos;
+        Quad.localScale = new Vector3(GetBoundsSizeX(), GetBoundsSizeX(), GetBoundsSizeX());
 
         model.SetActive(false);
     }
@@ -96,6 +99,12 @@ public class ModelItemBox : MonoBehaviour
             }
         }
 
+    }
+
+    public void Set3dModelTRS()
+    {
+        model.SetActive(true);
+        model.transform.SetParent(sceneParent);
     }
 
     public float GetBoundsSizeY()
