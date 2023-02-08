@@ -98,4 +98,14 @@ public class ModelItemBox : MonoBehaviour
 
     }
 
+    public float GetBoundsSizeY()
+    {
+        return Bounds.size.y;
+    }
+
+    public float GetBoundsSizeX()
+    {
+        return Bounds.size.x;
+    }
+
 }

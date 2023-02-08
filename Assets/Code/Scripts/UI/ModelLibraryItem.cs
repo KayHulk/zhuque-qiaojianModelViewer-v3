@@ -53,19 +53,23 @@ public class ModelLibraryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, 
             if (Physics.Raycast(ray, out RaycastHit hitInfo, 1000, (1 << layer)))
             {
                 var renderer = hitInfo.transform.GetComponent<Renderer>();
-                var renderers = dragging3DItem.GetComponentsInChildren<Renderer>();
 
                 if (renderer != null)
                 {
                     Debug.Log($"renderer:{renderer.name}, 3d:{dragging3DItem.name}");
-                    dragging3DItem.transform.localEulerAngles = dragging3DItem.transform.localEulerAngles + (hitInfo.normal * -1);
+                    //dragging3DItem.transform.localEulerAngles = dragging3DItem.transform.localEulerAngles + (hitInfo.normal * -1);
+
+                    Vector3 v = dragging3DItem.transform.up;
+                    dragging3DItem.transform.up = hitInfo.normal;
+
                     wordPos = hitInfo.point;
+                    
                 }
             }
             else
             {
                 dragging3DItem.transform.localEulerAngles = Vector3.zero;
-                
+                wordPos.y = dragging3DItem.GetBoundsSizeY() * 0.5f;
             }
 
             dragging3DItem.transform.position = wordPos;
@@ -82,6 +86,7 @@ public class ModelLibraryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         if (dragging3DItem != null)
         {
             Destroy(dragging3DItem.gameObject);
+            // TODO:将对应 3D Object 放置到对应位置上
         }
     }
 
